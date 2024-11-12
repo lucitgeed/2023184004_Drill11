@@ -163,10 +163,12 @@ class Boy:
     def fire_ball(self):
         if self.ball_count > 0:
             self.ball_count -= 1
+            global thrown_ball
             thrown_ball = Ball(self.x, self.y, self.face_dir * 10)
             game_world.add_object(thrown_ball)
 
             game_world.add_collision_pair('thrown_ball:zombie', thrown_ball, None)
+
 
 
     def get_bb(self):

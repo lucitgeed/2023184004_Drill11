@@ -23,7 +23,7 @@ class Ball:
 
     def get_bb(self):
         # fill here
-        return self.x - 10, self.y - 10, self.x + 10, self.y + 10
+        return (self.x - 10, self.y - 10, self.x + 10, self.y + 10)
         pass
 
     def handle_collision(self, group, other):
@@ -34,6 +34,7 @@ class Ball:
             #월드에서는 remove했지만
             #충돌 검사의 collisionpair에서는 남아있음
             #그러므로 remove_objects수정
-        if group == 'ball:zombie':          # 공이 좀비와 닿으면 소멸
+        elif group == 'thrown_ball:zombie':          # 공이 좀비와 닿으면 소멸
             game_world.remove_object(self)
+            pass
         pass

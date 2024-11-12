@@ -181,5 +181,6 @@ class Boy:
         if group == 'boy:ball':         #아하 나랑 ball이 충돌했구나
             self.ball_count += 1
         if group == 'boy:zombie':
+            game_world.remove_object(self)
             pass  # 좀비와 닿으면 상태는 dead상태로 들어감!!
         pass

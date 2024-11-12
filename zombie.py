@@ -69,9 +69,7 @@ class Zombie:
 
     def handle_collision(self, group, other):
         if group == 'thrown_ball:zombie':
-            print(f'            zombie coll_count is {self.coll_count}')
             self.coll_count += 1
-            print(f'            zombie coll_count changed to {self.coll_count}')
             if self.coll_count == 1:
                 self.zom_state -= 100
                 self.y -= 50
@@ -79,6 +77,9 @@ class Zombie:
                 print(f'            zombie coll_count is {self.coll_count}')
                 game_world.remove_object(self)
             pass
+        elif group == 'boy:zombie':
+            pass
+
 
 
 

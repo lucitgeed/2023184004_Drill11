@@ -163,17 +163,21 @@ class Boy:
     def fire_ball(self):
         if self.ball_count > 0:
             self.ball_count -= 1
-            ball = Ball(self.x, self.y, self.face_dir*10)
-            game_world.add_object(ball)
+            thrown_ball = Ball(self.x, self.y, self.face_dir * 10)
+            game_world.add_object(thrown_ball)
+
+            game_world.add_collision_pair('thrown_ball:zombie', thrown_ball, None)
+
 
     def get_bb(self):
         # fill here
         return (self.x - 20, self.y - 40,
                 self.x + 20,self.y + 40)        #바운딩 박스 좌표값 알려주는 중
-        pass
 
     def handle_collision(self, group, other):
         # fill here
         if group == 'boy:ball':         #아하 나랑 ball이 충돌했구나
             self.ball_count += 1
+        if group == 'boy:zombie':
+            pass  # 좀비와 닿으면 상태는 dead상태로 들어감!!
         pass

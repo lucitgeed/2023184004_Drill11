@@ -14,13 +14,6 @@ from zombie import Zombie
 
 
 
-
-
-
-
-
-
-
 def handle_events():
     events = get_events()
     for event in events:
@@ -54,6 +47,15 @@ def init():
 
     zombies = [Zombie() for _ in range(5)]
     game_world.add_objects(zombies,1)
+
+    ############### 좀비 충돌 정보를 등록
+    for zoms in zombies:
+        game_world.add_collision_pair('thrown_ball:zombie', None, zoms)
+
+    game_world.add_collision_pair('boy:zombie', boy, None)
+    for zoms in zombies:
+        game_world.add_collision_pair('boy:zombie', None, zoms)
+
 
 
 

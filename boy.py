@@ -3,6 +3,7 @@
 from pico2d import get_time, load_image, SDL_KEYDOWN, SDL_KEYUP, SDLK_SPACE, SDLK_LEFT, SDLK_RIGHT, load_font, \
     draw_rectangle
 
+import game_over
 from ball import Ball
 import game_world
 import game_framework
@@ -182,5 +183,6 @@ class Boy:
             self.ball_count += 1
         if group == 'boy:zombie':
             game_world.remove_object(self)
+            game_framework.change_mode(game_over)
             pass  # 좀비와 닿으면 상태는 dead상태로 들어감!!
         pass
